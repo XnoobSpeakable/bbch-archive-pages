@@ -14,6 +14,108 @@
         </ul>
     </nav>
     
+    <div class="message" id="message-1260244842999709726">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1260244842999709726">2024-07-09 14:43</a></div>
+            <div class="message-header-right">
+                <div class="message-username">legionmammal978</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">It turns out [`1RB2LC1RC_2LC---2RB_2LA0LB0RA`](https://wiki.bbchallenge.org/wiki/1RB2LC1RC_2LC---2RB_2LA0LB0RA) (ID 758) and its sibling [`1RB0LB0RC_2LC2LA1RA_1RA1LC---`](https://bbchallenge.org/1RB0LB0RC_2LC2LA1RA_1RA1LC---) (ID 153) are exactly equivalent. Take the config of ID 153 after `1790901` steps, and exchange `A → C → B → A, 1 ↔ 2, L ↔ R`. Then, you obtain the config of ID 758 after `1841608` steps, which is `0^∞ 12 (01)^84 C&gt; 22 (20)^255 0^∞`.</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">💯</div>
+                    <div class="message-reaction-count">2</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1324065684677988505">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1324065684677988505">2025-01-01 17:24</a></div>
+            <div class="message-header-right">
+                <div class="message-username">legionmammal978</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">I was feeling bored, so I went and augmented [the rules](https://discord.com/channels/960643023006490684/1259770474897080380/1259968221218607145) for the 3×3 halting cryptid [`1RB2LC1RC_2LC---2RB_2LA0LB0RA`](https://wiki.bbchallenge.org/wiki/1RB2LC1RC_2LC---2RB_2LA0LB0RA) with their step counts, and double-checked their validity while I was at it. They came out to:
+```
+A(a,c) = A1(a,0,c) = (0^∞ 1 2^a &lt;C (20)^c 0^∞)
+start: A(0,1) [2 steps]
+A(a,c) -&gt;[3c^2+8c+5]       A(a-c-1,3c/2+2)     [c ≤ a-1, c ≡ 0 (mod 2)]
+A(a,c) -&gt;[(6c^2+31c+37)/2] A(a-c-2,3(c-1)/2+5) [c ≤ a-2, c ≡ 1 (mod 4)]
+A(a,c) -&gt;[3c^2+29c+65]     A(a-c-4,3(c-1)/2+8) [c ≤ a-4, c ≡ 3 (mod 4)]
+A(a,c) -&gt;[(6c^2+43c+75)/2] Halt(3(c-1)/2+7)    [c = a-3, c ≡ 3 (mod 4)]
+A(a,c) -&gt;[(6c^2+37c+63)/2] A(3c+8,1)           [c = a-2, c ≡ 3 (mod 4)]
+A(a,c) -&gt;[3c^2+8c+6]       Halt(3(c-1)/2+4)    [c = a-1, c ≡ 1 (mod 2)]
+A(a,c) -&gt;[3a^2+5a+9c+24]   Halt(a/2+c+4)       [c ≥ a,   a ≡ 0 (mod 2), c ≡ 0 (mod 2)]
+A(a,c) -&gt;[3a^2+3a+5c+11]   A(1,a/2+c+2)        [c ≥ a+1, a ≡ 0 (mod 2), c ≡ 1 (mod 2)]
+A(a,c) -&gt;[3a^2-9a+14c+30]  A(3a,c-a+4)         [c ≥ a+1, a ≡ 1 (mod 2), c ≡ 0 (mod 2)]
+A(a,c) -&gt;[3a^2+5c+6]       A(3a+2,c-a+1)       [c ≥ a,   a ≡ 1 (mod 2), c ≡ 1 (mod 2)]
+```
+Using the numbers from where my [direct simulation](https://discord.com/channels/960643023006490684/960643023530762341/1275459473112170569) left off, I get s(M) ≥ 1052884886930621967473049580 as an (extremely naive) lower bound, about 8.8 billion times the current S(3,3) champion. So it&apos;s nice to know that it&apos;s definitely both the S and Σ champion, if it halts at all.</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">🦫</div>
+                    <div class="message-reaction-count">1</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1367340727859679322">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1367340727859679322">2025-05-01 03:23</a></div>
+            <div class="message-header-right">
+                <div class="message-username">legionmammal978</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">If I had to put down a timeline for [`1RB2LC1RC_2LC---2RB_2LA0LB0RA`](https://wiki.bbchallenge.org/wiki/1RB2LC1RC_2LC---2RB_2LA0LB0RA), it would be something like:
+1. The machine (and its [sibling](https://wiki.bbchallenge.org/wiki/1RB2LC1RC_2LC---2RB_2LA0LB0RA#Equivalence_to_1RB0LB0RC_2LC2LA1RA_1RA1LC---)) pass straight through various rounds of cleverly-written deciders
+2. dyuan posts his set of rules and looks into it a bit, Justin notes that he&apos;d briefly looked at it some time back
+3. Shawn and savask write up some acceleration schemes, find empirical evidence that it repeatedly comes close to halting, and speculate that it may actually halt after some period of time
+4. I take a crack at it myself, this time in terms of chains starting from `A(1,c)` configs, find some `c` values leading to a halt (showing that there&apos;s no obvious structural barrier), and conjecture some heuristics for how long it should take to reach such a halting `c` value
+5. dyuan and I nail down the ideas of &apos;halter families&apos; (collections of infinitely many halting `c` values so we don&apos;t have to brute-force them) and &apos;reachability analysis&apos; (obtaining a strong probvious guess of whether a `c` value will or won&apos;t occur in the machine&apos;s actual forward behavior, assuming it hasn&apos;t halted beforehand)
+6. dyuan and I race to find a halting `c` value that &apos;explodes&apos; (passes the reachability analysis), first within the &apos;trivial&apos; halter family to no avail, then within all halter families (writing a program to enumerate halter families is extremely fiddly, at this point I treat some of my own code as a black box not to be touched)
+7. By dint of a somewhat more performant program, I find (and dyuan confirms) the `c = (3^307-8282708212)/13959275` we all know and love, probviously sealing the machine&apos;s fate</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">🦫</div>
+                    <div class="message-reaction-count">11</div>
+                </div>
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">👍</div>
+                    <div class="message-reaction-count">1</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
     <div class="message" id="message-1390819028137803829">
         <div class="message-header">
             <div class="message-timestamp"><a href="#message-1390819028137803829">2025-07-04 22:18</a></div>
