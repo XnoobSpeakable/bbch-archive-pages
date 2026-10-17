@@ -35,6 +35,46 @@ body {
     word-break: break-word;
 }
 
+.message:target {
+    background-color: #dadc48;
+}
+
+.message-timestamp a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.message-timestamp a:hover {
+    text-decoration: underline;
+}
+
+.message-forward {
+    border-left: solid 5px #848484;
+    padding: 5px 10px;
+    margin: 5px 0;
+}
+
+.message-forward blockquote {
+    margin: 0;
+    margin-top: 5px;
+}
+
+.message-reactions {
+    display: flex;
+    gap: 5px;
+}
+
+.message-reaction {
+    border: 1px solid #848484;
+    background: #323232;
+    display: flex;
+    width: fit-content;
+    padding: 2px 5px;
+    gap: 5px;
+    align-items: center;
+    justify-items: center;
+}
+
 @media (max-width: 750px) {
     .message {
         flex-direction: column;
@@ -69,5 +109,13 @@ body {
 
     a:hover {
         color: #009bdd;
+    }
+
+    .message-timestamp a {
+        color: #f1f1f1;
+    }
+
+    .message:target {
+        background-color: #4c4d19;
     }
 }

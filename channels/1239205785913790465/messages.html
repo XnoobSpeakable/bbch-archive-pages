@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>bbchallenge - #bb6</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="..&#x2f;../styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1><a href="..&#x2f;../guilds/960643023006490684.html">bbchallenge</a> - #bb6</h1>
+    <nav>
+        <ul>
+            <li><a href="..&#x2f;../channels/1239205785913790465/threads.html">Threads</a></li>
+        </ul>
+    </nav>
+    
+    <div class="message" id="message-1267546343816171565">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1267546343816171565">2024-07-29 18:16</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">oh my goodness the second unlabeled machine on that list looks theoretically capable of f\_ω growth rate *and* it uses the hydra map</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">👀</div>
+                    <div class="message-reaction-count">4</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1267551868997992652">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1267551868997992652">2024-07-29 18:38</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">the third unlabeled one on the list is a pretty simple non-halting TM```
+1RB0LE_1LC1RA_---1LD_0RB1LF_1RD1LA_0LA0RD
+A(n) = 0^inf &lt;A 0 1^n
+
+rules:
+A(6n) -&gt; A(12n+3)
+A(6n+1) -&gt; A(12n+6)
+A(6n+2) -&gt; halt
+A(6n+3) -&gt; A(9n+9)
+A(6n+4) -&gt; halt
+A(6n+5) -&gt; A(9n+12)
+start from A(3)
+
+as we can see, everything that doesn&apos;t halt goes to A(6m) or A(6m+3) for some m, so halting is unreachable```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1267752546546487357">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1267752546546487357">2024-07-30 07:56</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">first one labeled `&quot;halting cryptid candidate&quot;-like?` on the list```
+1RB0RE_1LC1LD_0RA0LD_1LB0LA_1RF1RA_---1LB
+A(n,m) = 0^inf (01)^(3n-4) A&gt; (01)^m 0^inf
+
+A(2n,m) -&gt; A(3n,m-2)
+A(2n+1,m) -&gt; A(3n+1,m-1)
+A(n,0) -&gt; A(2,3n-4)
+A(n,-1) -&gt; halt
+start from A(2,0)
+
+it&apos;s kinda like the original halting cryptid candidate - we can rewrite it like this:
+a_0 = 2 and a_(i+1) = HydraMap(a_i)
+b_0 = 0 and b_(i+1) = b_i+(1 if a_i is odd otherwise 2)
+c_0 = 0 and c_(i+1) = 3a_j-4 where j is such that b_j = c_i
+
+a: 2, 3, 4, 6, 9, 13, 19, 28, 42, 63, 94, 141, ...
+b: 0, 2, 3, 5, 7,  8,  9, 10, 12, 14, 15,  17, ...
+c: 0, 2, 5, 14, 185, 22205951667644132025548, ...```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1267778444280725514">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1267778444280725514">2024-07-30 09:38</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">```
+1RB0LC_0LC0RF_1RD1LC_0RA1LE_---0LD_1LF1LA
+A(n,m) = 0^inf 1^n 0 F&gt; (01)^m 0^inf
+
+A(2n,m) -&gt; A(3n+6,m-3)
+A(2n+1,m) -&gt; A(3n+4,m-1)
+A(2n,2) -&gt; A(3n+5,0)
+A(2n+1,0) -&gt; A(3n+3,0)
+A(4n,0) -&gt; halt
+A(4n+2,0) -&gt; A(1,3n+2)
+A(4n,1) -&gt; A(1,3n+1)
+A(4n+2,1) -&gt; halt
+start from A(1,0)
+
+(1,0) -&gt; (3,0) -&gt; (6,0) -&gt; (1,5) -&gt; (4,4) -&gt; (12,1) -&gt; (1,10) -&gt; (4,9) -&gt; (12,6) -&gt; (24,3) -&gt; (42,0) -&gt; (1,32) -&gt; ... -&gt; (42,22) -&gt; (69,19) -&gt; (106,18) -&gt; (165,15) -&gt; (250,14) -&gt; (381,11) -&gt; (574,10) -&gt; (867,7) -&gt; (1303,6) -&gt; (1957,5) -&gt; (2938,4) -&gt; (4413,1) -&gt; (6622,0) -&gt; (1,4967) -&gt; ... -&gt; (1,14368104968158922075826107897180157472284778921629891726072102154787953803159846292172983561900377711849897006427931013549455392544971918174039397292047183836725754592289319138760681981985121998538399879663080278192689282242683391905756667361944058503279816320482221006589444678672938373180284730537542284274407184691680540140302771101361561704028370606196721983814161423625115635349884218310358225536631663390134886195173210534077626946216488582)
+and then we need about 2^1481.1028 iterations of this not-quite-hydra map to see the next jump```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1267805112651350107">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1267805112651350107">2024-07-30 11:24</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">last one labeled `&quot;halting cryptid candidate&quot;-like?` has 2/3 chance of translated cycling and 1/3 chance of halting```
+1RB0RC_0LC0LB_0LD1LC_0LE1LA_0LF---_1RF1RA
+A(n,m) = 0^inf &lt;F 0^n 1^m 0^inf
+
+A(4n,m) -&gt; A(9n+11,m-3)
+A(4n+1,m) -&gt; A(9n+15,m-3)
+A(4n+2,m) -&gt; A(9n+12,m-2)
+A(4n+3,m) -&gt; A(9n+16,m-2)
+A(n,0) -&gt; translated cycler
+A(n,1) -&gt; A(3,n+3)
+A(n,2) -&gt; halt
+start from A(3,1)
+
+(3,1) -&gt; (3,6) -&gt; (16,4) -&gt; (47,1) -&gt; (3,50) -&gt; (16,48) -&gt; (47,45) -&gt; (115,43) -&gt; ... -&gt; (119114448,1) -&gt; (3,119114451)``` someone could run this for around 50 million steps to see if it halts/TCs on the next jump</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1309900024930635786">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1309900024930635786">2024-11-23 15:15</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">`1RB---_0RC0RE_1RD1RF_1LE0LB_1RC0LD_1RC1RA` is a probviously halting cryptid. just an exponential one, specifically at each step it simply multiplies the main number by 8/3 and then changes a few things depending on what it was mod 3. the left side can change in a few ways to store information between these steps. if you start from the empty left side, there are some sequences of numbers you can get mod 3 which make the TM halt, and if the main number mod 3 was random, then the probability of this eventually happening would be 1 regardless of how long those sequences are. this is all standard stuff.
+
+however
+i&apos;m pretty sure the shortest such sequence has length around 100. i think it&apos;s a fun puzzle to try to find one yourself. the shortest one i found on my own has length 110, though it&apos;s actually a group of 2^13\*3^15 = 117546246144 such sequences because some parts can be permuted with certain restrictions. specifically, each (n,m) in the following sequence of pairs can be replaced with any sequence of n 2&apos;s and m 0&apos;s whose first k elements contain at least k/3 2&apos;s for every k&lt;=n+m:
+||(1,0), (2,1), (1,0), (2,3), (1,0), (2,4), (1,0), (2,3), (1,0), (3,5), (1,0), (3,4), (1,0), (3,3), (1,0), (2,4), (1,0), (2,3), (1,0), (3,4), (1,0), (3,6), (1,0), (2,3), (1,0), (3,4), (1,0), (3,6), (1,0)|| (spoilered because i think it&apos;s a relatively fun puzzle to try to figure out on your own)
+for any given point at which the left side is empty, the probability that it will follow one of these sequences from that point is just above 1/3^87
+i also ran a search on all sequences of only 0&apos;s and 2&apos;s (1&apos;s seem to always reset most of the progress you made in getting to a halting config so i ignored those) up to that length, and the shortest it found was length 107, so the only way it&apos;s less than that would be if either my code is wrong or somehow 1&apos;s manage to be useful for something other than resetting.
+
+so i think it&apos;s pretty reasonable to guess that from a given position with empty left side, the probability that the TM will halt before resetting the left side is around 1/3^80. the rest of the computation is the same as always: the expected number of times we generate a new random number mod 3 should be around 3^80, and since that happens only when the main number is roughly multiplied by 8/3, the number of 1s when halting should be around (8/3)^3^80 ≈ 10^10^37.8, and the halting time should be around (that)^2, i.e. around 10^10^38.1
+i know, not that impressive compared to the current champion, but i&apos;m posting it because i like the mechanism. also i guess it would still be in 11th place if this approximation is correct, though the current 11th place TM takes around 10^10^35.3 steps to halt so it&apos;s kinda close.</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1310044618632593409">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1310044618632593409">2024-11-24 00:49</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">`1RB0LC_1LC0RD_1LF1LA_1LB1RE_1RB1LE_---0LE` is a tetrational probviously halting cryptid. the lower bound for when it halts is around 10^10^120395, and with each exponentiation it has a 1/4 chance of halting, so i think the expected halting time is around 10^10^10^10^10^120395
+sadly we won&apos;t be able to run it any further, it uses the hydra map which we don&apos;t have a way to accelerate</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1373012119452389418">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1373012119452389418">2025-05-16 18:59</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">oh and then there&apos;s this absolute beauty: `1RB0LD_0RC0RA_1LC0LA_---1LE_0LF0RE_0RA0LE`
+quickly reaches an &quot;exponentiation&quot;-like phase, where each multiplication consists of multiplying by **5/6** and then multiplying by **9/5** for a total of 9/6 = 3/2 (and adding a bunch of constants, which are determined possibly by the initial value mod 12 and also by the details of what is on the right side)
+that phase continues past step 14 billion, and during that time, the right side has been reduced from [first picture] to [second picture]</div>
+            
+            <div class="message-attachments">
+                
+                <div class="message-attachment">
+                    
+                    <img src="..&#x2f;../attachments/1373012118948806726">
+                    
+                </div>
+                
+                <div class="message-attachment">
+                    
+                    <img src="..&#x2f;../attachments/1373012119485812837">
+                    
+                </div>
+                
+            </div>
+            <div class="message-reactions">
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">🦫</div>
+                    <div class="message-reaction-count">2</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1472376779825090713">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1472376779825090713">2026-02-14 23:39</a></div>
+            <div class="message-header-right">
+                <div class="message-username">alistaire</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">`1RB0LD_0RC0RE_1LC0LA_---1LE_0LF0RE_0RA0LE` proven non-halting</div>
+            
+            <div class="message-attachments">
+                
+                <div class="message-attachment">
+                    
+                    <a href="..&#x2f;../attachments/1472376779841998858">1RB0LD_0RC0RE_1LC0LA_---1LE_0LF0RE_0RA0LE_proven_nonhalt.txt</a>
+                    
+                </div>
+                
+            </div>
+            <div class="message-reactions">
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">🦫</div>
+                    <div class="message-reaction-count">11</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
