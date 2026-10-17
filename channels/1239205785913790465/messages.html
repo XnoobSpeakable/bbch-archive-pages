@@ -297,4 +297,56 @@ that phase continues past step 14 billion, and during that time, the right side 
         </div>
     </div>
     
+    <div class="message" id="message-1497001816741646407">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1497001816741646407">2026-04-23 22:30</a></div>
+            <div class="message-header-right">
+                <div class="message-username">sligocki</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">Looks like another ~~cryptid~~ chaotic TM:
+```
+1RB---_0RC0RD_1LD1RB_0LE0LC_1RA0LF_1LD1LE
+
+Let A(a,b,c) = 0^inf 1^a 10^b C&gt; 1^c 0^inf
+
+A(a+1,b,c+3) --&gt; A(a,b+2,c)
+
+A(a,b,0) --&gt; A(2b+1,1,a+1)
+A(a,b,1) --&gt; A(2b+3,1,a+1)
+A(a,b,2) --&gt; A(2b+5,1,a+1)
+
+A(0,b,c+5) --&gt; A(2b+4,2,c)
+A(0,b,4) --&gt; Halt
+A(0,b,3) --&gt; Halt
+
+Start: A(0,1,0)
+```
+Simulated out to 1B &quot;resets&quot; (rule count ignoring the first rule):
+```
+1_000_000_000  A(1_449_166_375, 1, 3_050_820_388)
+```
+Looks kind of like BMO1 where it only halts if a and c are &quot;close&quot; in some sense. Configs like `A(k,b,3k+{3,4})`</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">🦫</div>
+                    <div class="message-reaction-count">4</div>
+                </div>
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">👀</div>
+                    <div class="message-reaction-count">1</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
 </body>

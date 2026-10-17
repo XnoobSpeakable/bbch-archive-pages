@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>bbchallenge - #bbxy</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="..&#x2f;../styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1><a href="..&#x2f;../guilds/960643023006490684.html">bbchallenge</a> - #bbxy</h1>
+    <nav>
+        <ul>
+            <li><a href="..&#x2f;../channels/1084047886494470185/threads.html">Threads</a></li>
+        </ul>
+    </nav>
+    
+    <div class="message" id="message-1254307091863048264">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1254307091863048264">2024-06-23 05:28</a></div>
+            <div class="message-header-right">
+                <div class="message-username">sligocki</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">OK, I think I can simplify these rules a bit:
+```
+  (0, b, 2c)    -&gt; (2b+2, 1, 2c)
+
+  (1, b, 0) -&gt; Halt
+  (1, 2b,   2c)  -&gt; (0, 1, 2(b+c+1))
+  (1, 2b+1, 2c)  -&gt; (2, 1, 2(b+c+3))
+
+  (a, 2b,   0)  -&gt; (a-2, 2b+3, 0)
+  (2, 2b+1, 0)  -&gt; (0, 1, 2b+6)
+  (a, 2b+1, 0)  -&gt; (a-3, 1, 2b+4)
+```
+Notice that c is always even now.</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1254635277020954705">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1254635277020954705">2024-06-24 03:12</a></div>
+            <div class="message-header-right">
+                <div class="message-username">sligocki</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">OK, I have a little bit of an idea of what&apos;s going on with these long streaks of consistent differences between `c` values. I think we can prove the following behavior:
+```
+1RB2LC1RC_2LC---2RB_2LA0LB0RA
+
+Let f(n) = 3n+4
+    h(n) = f^n(1) + 1 = 3^{n+1} - 1
+    g(n) = sum_{k=0}^{n-1} h(k) = 3/2 (3^n - 1) - n 
+         = h(n)/2 - (n+1) 
+      h(n) = 2 (g(n) + n + 1)
+
+if g(n) &lt; c, then (0, 1, 2c) -&gt; (0, f^n(1), 2 (c-g(n))) 
+                             -&gt; (2 h(n), 1, 2 (c-g(n)))
+
+Let C(n) = (0, 1, 2n) = 0^inf 1 &lt;A2 22 (20)^2n 0^inf
+    
+C(g(n) + 8k+1) -&gt; C(g(n) + 8k+1 + n+9)
+  for all k: (h(n) - 45)/65 &lt; k &lt; (h(n) - 22)/38
+
+Notably, when 8 divides (n+1) then this rule can potentially be applied repeatedly.
+
+Ex: if n = 7, then we get:
+
+C(3273 + 8k) -&gt; C(3273 + 8(k+2))
+  when k in [101, 172]
+
+And we see this starting with C(4137) = C(3273 + 8*108) which repeats this rule until we get to C(4665) = C(3273 + 8*174).
+
+And as n gets way bigger, these ranges of repeat will increase exponentially.
+```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
