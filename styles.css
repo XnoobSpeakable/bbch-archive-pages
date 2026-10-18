@@ -65,8 +65,8 @@ body {
 }
 
 .message-reaction {
-    border: 1px solid #848484;
-    background: #323232;
+    border: 1px solid #7e7e7e;
+    background-color: #d6d6d6;
     display: flex;
     width: fit-content;
     padding: 2px 5px;
@@ -117,5 +117,10 @@ body {
 
     .message:target {
         background-color: #4c4d19;
+    }
+
+    .message-reaction {
+        border-color: #848484;
+        background-color: #323232;
     }
 }

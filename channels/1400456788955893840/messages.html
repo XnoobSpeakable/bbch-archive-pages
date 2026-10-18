@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>bbchallenge - #50 Random Holdouts</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="..&#x2f;../styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1><a href="..&#x2f;../guilds/960643023006490684.html">bbchallenge</a> - <a href="..&#x2f;../channels/1239205785913790465/threads.html">#bb6</a> - 50 Random Holdouts</h1>
+    <nav>
+        <ul>
+            
+        </ul>
+    </nav>
+    
+    <div class="message" id="message-1405116468168888423">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1405116468168888423">2025-08-13 09:11</a></div>
+            <div class="message-header-right">
+                <div class="message-username">int_y1</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">```
+1RB0RE_1LC0RA_1LA1LD_1LC1LF_0LC0LB_1LE---
+
+A(n,r) = 0^inf &lt;F 1^n r 0^inf
+ n &gt;= 2 (n &lt;= 1 causes the tm to have setup issues)
+ r is &quot;&quot; or starts with 0
+
+start at A(9,&quot;&quot;)
+
+start from A(n,r) and simulate until the head reaches r. the config depends on n%3:
+ for n%3==2, 0^inf 11 (01)^? B&gt; r 0^inf
+ for n%3==0, 0^inf 11 (01)^? 0 A&gt; r 0^inf
+ for n%3==1, 0^inf 11 (01)^? 00 E&gt; r 0^inf
+ in all 3 cases, the machine will reach a new config A(n&apos;,r&apos;)
+ call these 3 changes B, A, E
+
+B makes r shorter
+A is harder to analyze. A usually makes r shorter, but sometimes makes r longer.
+A can halt on certain values of r. for example, A(3,&quot;011011011&quot;) halts.
+E usually makes r longer
+E can halt on certain values of r. for example, A(4,&quot;011011&quot;) and A(4,&quot;01011011&quot;) halt.
+
+A(n,r) --&gt; A(n&apos;,r&apos;) always happens, regardless of n%3. given r, the next possible r&apos; can be found by simulating A(3k,r), A(3k+1,r), A(3k+2,r) and recording r&apos;. do a bfs starting at r=&quot;&quot;. the bfs visited ~235000 different values of r. the shortest path to halt has length 108:
+EEBBEBEEBEEEBBEBBEEBBEBEEBBEBBEEEBBEBBEBBEEBBEEEBBEBEEEBBEBBEEBBEBEEBBEBBEEEBBEBBEBBEEBBEBEEBBEBBEEEBBEBBEBE
+(somehow, A was useless in the bfs. i&apos;m not sure why.)
+
+these configs will reach halt:
+A(3^108 * k + 1975700577069254261393123959451562008800234946348086, &quot;&quot;)
+(i didn&apos;t formally prove this. it is likely to be true.)
+
+open question: starting from A(9,&quot;&quot;), will the config eventually become A(3^108 * k + 1975700577069254261393123959451562008800234946348086, &quot;&quot;)?
+
+there are 3 likely outcomes for my open question:
+1. the config is impossible to reach.
+2. the config is possible to reach, but the tm needs ~3^108 attempts to reach it. each attempt looks like A(n,r) --&gt; A(~ 8n/3,r&apos;). the config before halting will be A(~(8/3)^(3^108),?) = A(~10^10^51,?).
+3. the tm halts, but in another way. i.e. the length 108 path is unused.
+```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1409086365244854377">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1409086365244854377">2025-08-24 08:06</a></div>
+            <div class="message-header-right">
+                <div class="message-username">int_y1</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">```
+1RB0RE_1LC0RA_1LA1LD_1LC1LF_0LC0LB_1LE--- (update 2)
+
+A(n,r) = 0^inf &lt;F 1^n r 0^inf
+
+from my previous post, A(*,*) has 3 ways of changing: B, A, E. if you start at A(*,&quot;&quot;) and follow a path of length 108, the tm will halt.
+
+i have a formal proof that A(3^108 * k + 1975700577069254261393123959451562008800234946348086) will halt, for all k&gt;=0. see halts_A_mod_3_pow_108 in https://github.com/int-y1/proofs/blob/master/BusyLean/Individual/1RB0RE_1LC0RA_1LA1LD_1LC1LF_0LC0LB_1LE---.lean
+
+---
+
+from my previous post, i gave a path of length 108 that causes the tm to halt. there might be 1057916215296 paths of length 108 that cause the tm to halt. the chance of using a length-108 path to halt is around 1057916215296/3^108 (about 10^-39). warning: the tm can still halt in another way.
+
+A(n,*) transitions to A(~8n/3,*). it&apos;s possible that the tm is unlucky and it needs 10^39 transitions to halt.
+
+i simulated the tm and looked at A(*,*). the 1st A(*,*) is A(9,&quot;&quot;). i ran the simulation up to the 2728570th A(*,*) (i.e. A(~2^3861031,&quot;0111111111111111111111111&quot;)). the tm never came close to finishing the length-108 path. the closest attempt was 21 out of 108 steps, and this happened at the 2379364th A(*,*) (i.e. A(~2^3366892,&quot;010101101010111&quot;)).
+
+lastly, the next k transitions for A(n,r) and A(n+3^k,r) are probably the same (i think this is true, but didn&apos;t rigorously prove this). it&apos;s worth investigating n%(3^k). i looked into the sequence of n%3, but this sequence appears statistically random. maybe someone can look into n%(3^k) more carefully.
+
+this tm is like a lottery machine. i think it&apos;s probviously halting.
+
+next steps:
+
+* verify the simulation steps. does A(~2^3366892,&quot;010101101010111&quot;) occur?
+* run far away from this tm.
+```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
