@@ -14,6 +14,90 @@
         </ul>
     </nav>
     
+    <div class="message" id="message-1215532383961358376">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1215532383961358376">2024-03-08 05:31</a></div>
+            <div class="message-header-right">
+                <div class="message-username">legionmammal978</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">&lt;@465186903847731210&gt; Just to make sure, have you already adapted the cert for https://bbchallenge.org/1RB2LA0LA_2LC---2RA_0RA2RC1LC to its cousin https://bbchallenge.org/1RB1LC---_0LC2RB1LB_2LA0RC1RC ?</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1215532512307052634">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1215532512307052634">2024-03-08 05:32</a></div>
+            <div class="message-header-right">
+                <div class="message-username">legionmammal978</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">The two have a pretty simple relationship: From the first, replace start configs `A0|1B0|C12|2C2` with `B0|C02|0A2|A00|1B0|C12|1C1`. Exchange `1` and `2`, and left and right. Finally, rotate the states, replacing `A` with `C`, `B` with `A`, and `C` with `B`. Then you have the second.</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1217881464297885716">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1217881464297885716">2024-03-14 17:06</a></div>
+            <div class="message-header-right">
+                <div class="message-username">legionmammal978</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">Alright, I&apos;ve gotten the forward behavior of https://bbchallenge.org/1RB2LA0LA_2LC---2RA_0RA2RC1LC fully (?) characterized:
+```
+C(a,b,c) = 0^∞ (12)^a 2^b C&gt; 202 (202)^c 000
+(0^∞ A&gt; 0^∞) -&gt; C(1,5,1) 0^∞
+
+C(0,b,c) -&gt; C(b+2,1,c-1)         [c ≥ 1]
+C(1,b,c) -&gt; C(b+5,1,c-1)         [c ≥ 1]
+C(2,b,0) -&gt; C(1,5,2) 0^(b-2) 202 [b ≥ 2]
+C(a,b,0) -&gt; C(1,5,a-3) 0^b 202   [a ≥ 3]
+C(a,b,c) -&gt; C(a-2,b+7,c-1)       [a ≥ 2, c ≥ 1]
+C(0,b,0) 0^5 -&gt; C(1,5,b+1)
+C(1,b,0) 0^5 -&gt; C(1,5,b+4)
+```
+**EDIT:** The original version of this comment had two incorrect rules (shown below), which have been fixed above:
+```
+C(2,b,0) -&gt; C(1,5,2) 0^(b+1) 202
+C(a,b,0) -&gt; C(1,5,a-3) 0^(b+3) 202 [a ≥ 3]
+```
+It&apos;s hard to determine whether the last two cases can ever occur at all, unless there&apos;s some modular invariant I&apos;m not seeing. Also, if they do occur, I believe it&apos;s impossible for it to eat another `0^5` before a new `0^(b+1)` or `0^(b+3)` is added, but I don&apos;t have a formal proof of this.</div>
+            
+            <div class="message-attachments">
+                
+                <div class="message-attachment">
+                    
+                    <a href="..&#x2f;../attachments/1217881464377442385">analysis3.txt</a>
+                    
+                </div>
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
     <div class="message" id="message-1254307091863048264">
         <div class="message-header">
             <div class="message-timestamp"><a href="#message-1254307091863048264">2024-06-23 05:28</a></div>
@@ -89,6 +173,48 @@ And as n gets way bigger, these ranges of repeat will increase exponentially.
                 
             </div>
             <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1398753236835635252">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1398753236835635252">2025-07-26 19:45</a></div>
+            <div class="message-header-right">
+                <div class="message-username">nickdrozd_36214</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">new BBi(8) champ: `1RB1LA------_1RC3LB1RB---_2LA2LC---0LC`
+
+leaves `~10^783.13207  =  ((-11 + 3^((7 + 3^8)/4))/2)` marks. not sure how many steps!</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">beaversvg</div>
+                    <div class="message-reaction-count">9</div>
+                </div>
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">😲</div>
+                    <div class="message-reaction-count">3</div>
+                </div>
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">👏</div>
+                    <div class="message-reaction-count">2</div>
+                </div>
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">💖</div>
+                    <div class="message-reaction-count">1</div>
+                </div>
                 
             </div>
         </div>

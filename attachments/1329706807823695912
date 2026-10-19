@@ -1,0 +1,52 @@
+
+https://bbchallenge.org/1RB1LB2LC_1LA2RB1RB_---0LA2LA
+https://bbchallenge.org/1LB1RB2RC_1RA2LB1LB_---0RA2RA
+BB 0 => 2 AB: B0>1A,1B>B2
+
+AB 1 => 2 BB: A1>1B,1B>B2
+AB 2 => 1 CB: A2>2C,2B>B1
+ABAB 1 => 1 BBCB: A1>1B,1B>B2,A2>2C,2B>B1
+ABAB 2 => 2 CBBB: A2>2C,2B>B1,A1>1B,1B>B2
+BB 1 => 2: B1>B2
+BB 2 => 1: B2>B1
+BBCB 1 => 1 AB: B1>B2,C2>2A,2B>B1
+BBCB 2 => 2 ABAB: B2>B1,C1>0A,0B>1A,1B>B2
+CB 1 => 2 ABAB: C1>0A,0B>1A,1B>B2
+CB 2 => 1 AB: C2>2A,2B>B1
+CBBB 1 => 1 ABAB: C1>0A,0B>1A,1B>B2,B2>B1
+CBBB 2 => 2 AB: C2>2A,2B>B1,B1>B2
+
+AB $ => 1$: A$>B1$
+ABAB $ => 221$: A$>B1$,A1$>B221$
+BB $ => 21$: B$>B21$
+BBCB $ => 1221$: B$>B21$,C21$>1221$
+CB $ => halt: C$>HH
+CBBB $ => halt: C$>HH
+
+a:AB
+b:BB
+c:CB
+d:ABAB
+e:CBBB
+f:BBCB
+
+a 0 => 1
+a 1 => 2 b
+a 2 => 1 c
+b 0 => 2 a
+b 1 => 2
+b 2 => 1
+c 0 => halt
+c 1 => 2 d
+c 2 => 1 a
+d 0 => 2 b
+d 1 => 1 f
+d 2 => 2 e
+e 0 => halt
+e 1 => 1 d
+e 2 => 2 a
+f 0 => 1 d
+f 1 => 1 a
+f 2 => 2 d
+
+cell 0: a(acde)

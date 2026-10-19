@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>bbchallenge - #New BB(6) Champion Family (Shift-Overflow Mixed-Digits Bouncer Counter)</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="..&#x2f;../styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1><a href="..&#x2f;../guilds/960643023006490684.html">bbchallenge</a> - <a href="..&#x2f;../channels/1336602535502544936/threads.html">#None</a> - New BB(6) Champion Family (Shift-Overflow Mixed-Digits Bouncer Counter)</h1>
+    <nav>
+        <ul>
+            
+        </ul>
+    </nav>
+    
+    <div class="message" id="message-1384195691529633896">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1384195691529633896">2025-06-16 15:39</a></div>
+            <div class="message-header-right">
+                <div class="message-username">mxdys_82900</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">```
+1RB1LC_1LA1RE_0RD0LA_---1LB_1LD0RF_0RD1RB
+1RB1LC_1LA1RE_0RD0LA_---1LB_1LE0RF_0RD1RB
+1RB1LC_1LA1RD_1LA0LA_1LD0RE_0RF1RB_---1LB
+1RB1LC_1LA1RD_1LA0LA_1LD0RE_0RF1RB_---1LC
+1RB1LC_1LA1RD_1LA0LA_1LF0RE_0RF1RB_---1LB
+1RB1LD_1LC1RE_---1LD_1LA0LA_1LE0RF_0RC1RB
+```
+halts at time and score ~10^^10^7
+
+analysis:
+```coq
+Inductive LBigStep: LS-&gt;LS-&gt;nat-&gt;nat-&gt;Prop :=
+| LBigStep_H1:
+    LBigStep H1 H1 1 1
+| LBigStep_H2:
+    LBigStep H2 H4 2 2
+(* H3 halts, no next step *)
+| LBigStep_H4:
+    LBigStep H4 H5 1 1
+| LBigStep_H5:
+    LBigStep H5 H1 1 2
+| LBigStep_W1_H1:
+    LBigStep (W1 0 H1) H5 1 2
+| LBigStep_W2_H1_0:
+    LBigStep (W2 0 H1) H3 1 3
+| LBigStep_W2_H1_1:
+    LBigStep (W2 1 H1) H2 1 3
+| LBigStep_W1 x x&apos; n k k0 k1:
+    LBigStep x x&apos; n k -&gt;
+    k0+k = k1+2 -&gt;
+    LBigStep (W1 k0 x) (W1 k1 x&apos;) (((n+1)*2^k1-1-1)*4+5) 2
+| LBigStep_W2 x x&apos; n k k0 k1:
+    LBigStep x x&apos; n k -&gt;
+    k0+k = k1+3 -&gt;
+    LBigStep (W2 k0 x) (W2 k1 x&apos;) (((n+1)*2^k1-1-1)*8+5) 3
+.
+
+Lemma BigStep2 [x x&apos; n k m1 m2]:
+  LBigStep x x&apos; n k -&gt;
+  S1 (2+m2*3) (3+m1) x --&gt;*
+  S1 ((((n+1)*2^(m1+k)-1-1)*4+2)*2^(1+m2)-1+1+1) m2 (W2 (m1+k) x&apos;).
+
+Lemma BigStep1 [x x&apos; n k m1 m2]:
+  LBigStep x x&apos; n k -&gt;
+  S1 (1+m2*3) (2+m1) x --&gt;*
+  S1 ((((n+1)*2^(m1+k)-1-1)*2+2)*2^(1+m2)-1+1+1) m2 (W1 (m1+k) x&apos;).
+
+Lemma BigStep0 [x x&apos; n k m1 m2]:
+  LBigStep x x&apos; n k -&gt;
+  S1 (0+m2*3) (1+m1) x --&gt;*
+  S1 ((((n+1)*2^(m1+k)-1))*2^(1+m2)-1+1+1) (1+m2+m1+k) x&apos;.
+
+Lemma init:
+  c0 --&gt;*
+  S1 57 5 H1.
+
+S1 57 5 H1 --&gt;
+S1 66060289 25 H1 --&gt;
+S1 _ 22020096 (W1 24 H1) --&gt;
+S1 _ _ (W2 22020095 (W1 23 H1)) --&gt; ...
+S1 _ _ (...(W2 22020072 (W1 0 H1))...) --&gt;
+S1 _ _ (...(W2 22020071 H5)...) --&gt;
+S1 _ _ (...(W2 22020070 H1)...) --&gt; ...
+S1 _ _ (...(W2 2 H1)...) --&gt;
+S1 _ _ (...(W2 0 H1)...) --&gt;
+S1 _ _ (...H3...) --&gt;
+halt
+```</div>
+            
+            <div class="message-attachments">
+                
+                <div class="message-attachment">
+                    
+                    <img src="..&#x2f;../attachments/1384195692318294207">
+                    
+                </div>
+                
+            </div>
+            <div class="message-reactions">
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">🦫</div>
+                    <div class="message-reaction-count">25</div>
+                </div>
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">💌</div>
+                    <div class="message-reaction-count">9</div>
+                </div>
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">🎉</div>
+                    <div class="message-reaction-count">2</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
