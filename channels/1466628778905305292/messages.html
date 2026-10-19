@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>bbchallenge - #1RB1LE_1LB1LC_1RD0LE_---0RB_1RF1LA_0RA0RD</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="..&#x2f;../styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1><a href="..&#x2f;../guilds/960643023006490684.html">bbchallenge</a> - <a href="..&#x2f;../channels/1336602535502544936/threads.html">#None</a> - 1RB1LE_1LB1LC_1RD0LE_---0RB_1RF1LA_0RA0RD</h1>
+    <nav>
+        <ul>
+            
+        </ul>
+    </nav>
+    
+    <div class="message" id="message-1466628778905305292">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1466628778905305292">2026-01-30 02:59</a></div>
+            <div class="message-header-right">
+                <div class="message-username">hipparcos</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">This machine has a relatively low Brick&apos;s heuristic of 0.2193. mxdys classified it under &quot;quadratic mess&quot; in his classified2.txt.  Wiki user Polygon has analyzed it: [link 1](https://wiki.bbchallenge.org/wiki/1RB1LE_1LB1LC_1RD0LE_---0RB_1RF1LA_0RA0RD), [link 2](https://wiki.bbchallenge.org/wiki/User:Polygon/Page_for_analyses).
+
+I arrived at the following set of rules. They ended up being quite similar to the ones found by Polygon, although I did my analysis independently.
+
+Let the notation &quot;`a ... b [m] c ... d`&quot; mean `0^inf 1^a 0 ... 0 1^b 0 1^m 0B&gt; 0 1^c 0 ... 0 1^d 0^inf`. (So basically a series of numbers in unary.)
+Also let &quot;L&quot; denote the `0^inf` on the left side.  Then we have the following rules:
+
+```
+a. L 1 [0] c ... -&gt; L [c+4] ...
+b. L 2 [0] c ... -&gt; L 2 [c+2] ...
+c. L 3 [0] c ... -&gt; ***HALT***
+d. L 4 [0] c ... -&gt; L [c+8] ...
+e. L 2k+5 [0] c ... -&gt; L 2 [2k+1] c+4 ...
+f. ... a 2k+6 [0] c ... -&gt; ... a+1 [2k+2] c+4 ...
+g. ... a [1] c ... -&gt; ... [a+c+3] ...
+h. ... a [4k+2] b ... -&gt; ... a+k+2 [b+3k+1] ...
+i. L [3] c ... -&gt; ***HALT***
+j. L 2 [2k+3] b ... -&gt; L [b+6k+11] ...
+k. L 2k_0+3 [2k_n+3] c ... -&gt; L 2 [2k_0+1] 2k_n+1 c+3 ...
+l. L 2k_0+4 [2k_n+3] c ... -&gt; L 1 [2k_0+2] 2k_n+1 c+3 ...
+m. ... a [4k+4] b ... -&gt; ... a+k+1 [0] b+3k+3
+n. L [2k+5] c ... -&gt; L 2 [2k+1] c+3 ...
+```
+Here, `a,b,c,k &gt;= 0`.
+
+Though we can write rules for lists of arbitrarily many unary numbers, in actual simulations starting from `[m]` for `m = 2, 3, 4, ...`, I only see up to four numbers at a time.</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1466628807082381312">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1466628807082381312">2026-01-30 02:59</a></div>
+            <div class="message-header-right">
+                <div class="message-username">hipparcos</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">The forward simulation of this TM reaches `[2]` after 8 base steps. And then,
+```
+[2] -&gt; 2 [1] -&gt; [5] -&gt; 2 [1] 3 -&gt; [8] -&gt; 2 [0] 6 -&gt; 2 [8] -&gt; 4 [0] 6 -&gt; [14] -&gt; 3 [2] 9 -&gt; 5 [10] -&gt; 7 [2] 6 -&gt; 9 [7] -&gt; 2 [7] 5 3 -&gt; [28] 3 -&gt; 7 [0] 24 -&gt; 2 [3] 28 -&gt; [39] -&gt; 2 [35] 3 -&gt; [110] -&gt; 29 [82] -&gt; 51 [61] -&gt; 2 [49] 59 3 -&gt; [208] 3 -&gt; 52 [0] 159 -&gt; 1 [48] 163 -&gt; 13 [0] 199 -&gt; 2 [9] 203 -&gt; [232] -&gt; 58 [0] 174 -&gt; ...
+```
+After 10^7 rule steps, the TM has reached a configuration that looks like `2 [m] 3` where `m` is a 1448032-bit odd integer, and still has not halted.</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1466628862728208567">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1466628862728208567">2026-01-30 02:59</a></div>
+            <div class="message-header-right">
+                <div class="message-username">hipparcos</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">In the long-term behavior of this TM, the machine tends to be in one of seven kinds of configurations:
+```
+[B0] 3s
+2 [B1] 3s
+[B1] 3s
+B [B] 3s
+1 [B0] B 3s
+B [0] B 3s
+2 [B1] B 3s
+```
+Here, `B` is some big number, `B0` is a big even number, `B1` is a big odd number, and `3s` is a small multiple of 3 and `3s &gt;= 0`.</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1466628895796101191">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1466628895796101191">2026-01-30 02:59</a></div>
+            <div class="message-header-right">
+                <div class="message-username">hipparcos</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">There are 15 kinds of transitions between these configurations using rules `e, f, h, j, k, l, m, n` as shown in this diagram here.</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1466628961630027880">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1466628961630027880">2026-01-30 02:59</a></div>
+            <div class="message-header-right">
+                <div class="message-username">hipparcos</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text"></div>
+            
+            <div class="message-attachments">
+                
+                <div class="message-attachment">
+                    
+                    <img src="..&#x2f;../attachments/1466628961151750277">
+                    
+                </div>
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1466628996413526209">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1466628996413526209">2026-01-30 03:00</a></div>
+            <div class="message-header-right">
+                <div class="message-username">hipparcos</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">There are either one or two big numbers in the list.  When there are two big numbers, the left big number might get smaller and smaller and if it reaches 3, then the machine halts by rule `c` or `i`. This could happen if the machine keeps going between configurations `B [B] 3s`, `1 [B0] B 3s`, `B [0] B 3s`.  The red arrows in the diagram make the left big number significantly smaller and the green arrows make it larger. However, the machine most likely will reset back to a configuration with only one big number. As the machine continues, the numbers grow rapidly, thanks to the `j` rule basically multiplying a number by 3, such that it becomes increasingly unlikely for the machine to halt -- the TM would need to have a long sequence of the correct transitions and avoid resetting.</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1466629036561272913">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1466629036561272913">2026-01-30 03:00</a></div>
+            <div class="message-header-right">
+                <div class="message-username">hipparcos</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">To get a sense of how likely any tape configuration is to halt, I ran simulations starting from `[m]` for various values of `m`.  Either the simulation halts relatively quickly or the numbers get too big and overflow (I&apos;m using 128-bit integers here).  The simulation quickly halts for the following values of `m`:
+```
+3, 10, 12, 27, 28, 33, 34, 35, 36, 43, 45, 48, 65, 74, 79, 81, 82, 88, 92, 98, 122, 128, 132, 138, 178, 186, 188, 192, 202, 210, 213, 230, 235, 236, 275, 276, 294, 348, 394, 408, 455, 474, 516, 529, 539, 544, 632, 653, 698, 723, 736, 748, 754, 768, 818, 859, 901, 981, 1003, 1116, 1297, 1358, 1372, 1522, 1580, 1610, 1668, 1689, 1822, 1825, 1882, 1933, 1952, 1990, 2038, 2052, 2074, 2162, 2277, 2286, 2364, 2490, 2496, 2507, 2570, 2578, 2696, 2778, 2848, 2914, 2936, 2982, 3002, 3058, 3072, 3196, 3387, 3421, 3517, 3540, ...
+```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1466629081608229077">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1466629081608229077">2026-01-30 03:00</a></div>
+            <div class="message-header-right">
+                <div class="message-username">hipparcos</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">I made a list of quickly halting values of `m` up to 10^9.  It seems like the number of quick halters less than or equal to `x` goes as approximately `6.4 * x^0.350`.  See plot.</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1466629112872308746">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1466629112872308746">2026-01-30 03:00</a></div>
+            <div class="message-header-right">
+                <div class="message-username">hipparcos</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text"></div>
+            
+            <div class="message-attachments">
+                
+                <div class="message-attachment">
+                    
+                    <img src="..&#x2f;../attachments/1466629112503468236">
+                    
+                </div>
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1466629138197512423">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1466629138197512423">2026-01-30 03:00</a></div>
+            <div class="message-header-right">
+                <div class="message-username">hipparcos</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">So maybe the density of quickly halting values is low enough that the TM is nonhalting (though difficult to prove)?</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1466629193642279113">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1466629193642279113">2026-01-30 03:00</a></div>
+            <div class="message-header-right">
+                <div class="message-username">hipparcos</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">However there is also some structure to the sequence of quickly halting values, so maybe more analysis is needed. Here is a plot of gaps between quickly halting values.</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1466629214114676787">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1466629214114676787">2026-01-30 03:00</a></div>
+            <div class="message-header-right">
+                <div class="message-username">hipparcos</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text"></div>
+            
+            <div class="message-attachments">
+                
+                <div class="message-attachment">
+                    
+                    <img src="..&#x2f;../attachments/1466629213862760682">
+                    
+                </div>
+                
+            </div>
+            <div class="message-reactions">
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">💌</div>
+                    <div class="message-reaction-count">2</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
