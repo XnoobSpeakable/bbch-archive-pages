@@ -1,0 +1,288 @@
+use std::fmt;
+
+#[derive(Copy, Clone, Debug, PartialEq)]
+enum Sym {
+    S1,
+    S2,
+}
+use Sym::*;
+
+impl fmt::Display for Sym {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.write_str(match self {
+            S1 => "1",
+            S2 => "2",
+        })
+    }
+}
+
+#[derive(Copy, Clone, Debug)]
+enum State {
+    A,
+    B,
+    C,
+    D,
+}
+use State::*;
+
+#[derive(Copy, Clone, Debug)]
+enum Init {
+    I(State),
+    I2,
+    I22,
+    I122,
+}
+use Init::*;
+
+impl Init {
+    fn advance(self) -> (Sym, Option<Init>) {
+        match self {
+            I(A) => (S2, None),
+            I(B) => panic!("halt!"),
+            I(C) => (S1, Some(I122)),
+            I(D) => (S2, Some(I2)),
+            I2 => (S2, None),
+            I22 => (S2, Some(I2)),
+            I122 => (S1, Some(I22)),
+        }
+    }
+}
+
+impl fmt::Display for Init {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.write_str(match self {
+            I(A) => "A>",
+            I(B) => "B>",
+            I(C) => "C>",
+            I(D) => "D>",
+            I2 => "(2)",
+            I22 => "(22)",
+            I122 => "(122)",
+        })
+    }
+}
+
+#[derive(Copy, Clone, Debug)]
+enum RType {
+    AD,
+    DA,
+    B,
+    C,
+}
+
+impl fmt::Display for RType {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.write_str(match self {
+            RType::AD => "AD",
+            RType::DA => "DA",
+            RType::B => "B",
+            RType::C => "C",
+        })
+    }
+}
+
+impl RType {
+    fn advance_str(self, sym: Sym) -> &'static str {
+        match (self, sym) {
+            (RType::AD, S1) => "C_",
+            (RType::AD, S2) => "B_",
+            (RType::DA, S1) => "_B",
+            (RType::DA, S2) => "_C",
+            (RType::B, S1) => "AD",
+            (RType::B, S2) => "DA",
+            (RType::C, S1) => "B",
+            (RType::C, S2) => "C",
+        }
+    }
+}
+
+#[derive(Copy, Clone, Debug)]
+struct Run(u128, RType);
+
+impl Run {
+    fn from_state(state: State) -> Self {
+        let rtype = match state {
+            A => RType::AD,
+            B => RType::B,
+            C => RType::C,
+            D => RType::DA,
+        };
+        Self(1, rtype)
+    }
+
+    fn take_one(self) -> (State, Self) {
+        let (state, next_rtype) = match self.1 {
+            RType::AD => (A, RType::DA),
+            RType::DA => (D, RType::AD),
+            RType::B => (B, RType::B),
+            RType::C => (C, RType::C),
+        };
+        (state, Self(self.0 - 1, next_rtype))
+    }
+
+    fn advance(self, sym: Sym) -> (Sym, Self) {
+        let Self(len, rtype) = self;
+        match (rtype, len % 2 != 0, sym) {
+            (RType::AD, false, S1) => (S1, Self(len / 2, RType::C)),
+            (RType::AD, false, S2) => (S2, Self(len / 2, RType::B)),
+            (RType::AD, true, S1) => (S2, Self(len / 2 + 1, RType::C)),
+            (RType::AD, true, S2) => (S1, Self(len / 2 + 1, RType::B)),
+            (RType::DA, false, S1) => (S1, Self(len / 2, RType::B)),
+            (RType::DA, false, S2) => (S2, Self(len / 2, RType::C)),
+            (RType::DA, true, S1) => (S2, Self(len / 2, RType::B)),
+            (RType::DA, true, S2) => (S1, Self(len / 2, RType::C)),
+            (RType::B, false, S1) => (S1, Self(len, RType::AD)),
+            (RType::B, false, S2) => (S2, Self(len, RType::DA)),
+            (RType::B, true, S1) => (S2, Self(len, RType::AD)),
+            (RType::B, true, S2) => (S1, Self(len, RType::DA)),
+            (RType::C, _, S1) => (S1, Self(len, RType::B)),
+            (RType::C, _, S2) => (S2, Self(len, RType::C)),
+        }
+    }
+
+    fn extend(&mut self, other: Run) -> bool {
+        match (self.1, other.1, self.0 % 2 != 0) {
+            (RType::AD, RType::AD, false) => {}
+            (RType::AD, RType::DA, true) => {}
+            (RType::DA, RType::DA, false) => {}
+            (RType::DA, RType::AD, true) => {}
+            (RType::B, RType::B, _) => {}
+            (RType::C, RType::C, _) => {}
+            _ => return false,
+        }
+        self.0 = self.0.checked_add(other.0).expect("length overflow");
+        true
+    }
+
+    fn is_empty(self) -> bool {
+        self.0 == 0
+    }
+
+    fn complement(self) -> Self {
+        let rtype = match self.1 {
+            RType::AD => RType::DA,
+            RType::DA => RType::AD,
+            RType::B => RType::C,
+            RType::C => RType::B,
+        };
+        Self(self.0, rtype)
+    }
+}
+
+fn take_init(init: Option<Init>, runs: &mut Vec<Run>) -> Init {
+    if let Some(init) = init {
+        return init;
+    }
+    let (state, run) = runs[0].take_one();
+    if run.is_empty() {
+        runs.remove(0);
+    } else {
+        runs[0] = run;
+    }
+    let extra = Run::from_state(state);
+    if !runs.last_mut().is_some_and(|prev| prev.extend(extra)) {
+        runs.push(extra);
+    }
+    I(state)
+}
+
+const LOG: bool = true;
+const HEAD: usize = 10;
+
+fn next_cycle(init: Option<Init>, mut runs: Vec<Run>) -> (Option<Init>, Vec<Run>) {
+    let init = take_init(init, &mut runs);
+    let (init_sym, next_init) = init.advance();
+    if LOG {
+        if let Some(next_init) = next_init {
+            println!(" {init} $ => {init_sym} {next_init}");
+        } else {
+            println!(" {init} $ => {init_sym}");
+        }
+    }
+    let (mut read_pos, mut write_pos) = (0, 0);
+    let mut sym = init_sym;
+    while read_pos < runs.len() {
+        let run = runs[read_pos];
+        read_pos += 1;
+        let (next_sym, next_run) = run.advance(sym);
+        if LOG && read_pos < HEAD {
+            let Run(len, rtype) = run;
+            let next_str = rtype.advance_str(sym);
+            println!(" {len} × {rtype}> {sym} => {next_sym} {next_str}>");
+        }
+        sym = next_sym;
+        if !next_run.is_empty() && (write_pos == 0 || !runs[write_pos - 1].extend(next_run)) {
+            runs[write_pos] = next_run;
+            write_pos += 1;
+        }
+    }
+    let len = write_pos;
+    runs.truncate(len);
+    if sym != init_sym {
+        let orig_last = runs[len - 1];
+        for i in 0..len {
+            let run = if i == len - 1 { orig_last } else { runs[i] };
+            let next_run = run.complement();
+            if LOG && len + i < HEAD {
+                let Run(len, rtype) = run;
+                let Run(_, next_rtype) = next_run;
+                println!(" {len} × {rtype}> <> {next_rtype}>");
+            }
+            let last_pos = runs.len() - 1;
+            if !runs[last_pos].extend(next_run) {
+                runs.push(next_run);
+            }
+        }
+    }
+    (next_init, runs)
+}
+
+fn next_partial(init: Option<Init>, mut runs: Vec<Run>) -> (Option<Init>, Vec<Run>) {
+    let init = take_init(init, &mut runs);
+    let (init_sym, next_init) = init.advance();
+    if LOG {
+        if let Some(next_init) = next_init {
+            println!(" {init} $ => {init_sym} {next_init}");
+        } else {
+            println!(" {init} $ => {init_sym}");
+        }
+    }
+    let (mut read_pos, mut write_pos) = (0, 0);
+    let mut sym = init_sym;
+    while read_pos < runs.len() {
+        let run = runs[read_pos];
+        read_pos += 1;
+        let (next_sym, next_run) = run.advance(sym);
+        if LOG && read_pos < HEAD {
+            let Run(len, rtype) = run;
+            let next_str = rtype.advance_str(sym);
+            println!(" {len} × {rtype}> {sym} => {next_sym} {next_str}>");
+        }
+        sym = next_sym;
+        if !next_run.is_empty() && (write_pos == 0 || !runs[write_pos - 1].extend(next_run)) {
+            runs[write_pos] = next_run;
+            write_pos += 1;
+        }
+    }
+    runs.truncate(write_pos);
+    runs.shrink_to_fit();
+    (next_init, runs)
+}
+
+fn main() {
+    let mut init = None;
+    let mut runs = vec![Run::from_state(A), Run::from_state(B)];
+    let cutoff = 640usize;
+    for i in 0..cutoff {
+        if LOG {
+            println!("cell {i}:");
+        }
+        (init, runs) = next_cycle(init, runs);
+    }
+    for i in cutoff.. {
+        if LOG {
+            println!("cell {i} (partial):");
+        }
+        (init, runs) = next_partial(init, runs);
+    }
+}

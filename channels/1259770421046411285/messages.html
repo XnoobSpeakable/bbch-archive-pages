@@ -14,4 +14,259 @@
         </ul>
     </nav>
     
+    <div class="message" id="message-1329809402378719273">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1329809402378719273">2025-01-17 13:47</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">this TM (`1RB2RA3LB---2LB_2LA0LA4RB0RB1LA`) might beat the champion, since it&apos;s tetrational and (unless some magic happens) it&apos;s probviously halting</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1329809531034927165">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1329809531034927165">2025-01-17 13:48</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">though as far as i can tell, it should have probability 1/2 of halting at each overflow</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1329812916295438337">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1329812916295438337">2025-01-17 14:01</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">it&apos;s exponential, with base roughly 2^(3/4) (considering 2-cell digits, since the tape seems to be structured that way)
+at the time of the last overflow i saw, the tape width was around 850, which means around 425 digits, so we can expect the next overflow to happen at width around 2^300. for the TM to beat the champion, that overflow and the next two overflows would have to happen without halting so that the halting time is around 2^2^2^2^300 or higher, which means the probability that it beats the champion is around 1/8 (if i&apos;m right about the halting probability per overflow being 1/2)</div>
+            
+            <div class="message-attachments">
+                
+                <div class="message-attachment">
+                    
+                    <img src="..&#x2f;../attachments/1329812916467138652">
+                    
+                </div>
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1329819283949224077">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1329819283949224077">2025-01-17 14:27</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">i ran it on smaller randomly generated cases, looks like the halting probability is more likely somewhere in (0.2,0.35), so the probability that it beats the champion seems to be around 1/4 or 1/2</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1336973758182981634">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1336973758182981634">2025-02-06 08:16</a></div>
+            <div class="message-header-right">
+                <div class="message-username">aducharme</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">I finally got around to looking into [bonus cryptid](https://bbchallenge.org/1RB3RB---3LA1RA_2LA3RA4LB0LB1LB&amp;)&apos;s missing transition. I found in August that it hits A(3n+2,0) after 113 A rule steps, but never seriously looked into what happened from there. The tape of the actual TM at that point is ginormous, so I looked at cases A(3n+2,0) -&gt; 0&lt;A 2 0^(3n+2) 2 0. From observations of the cases n=[0,1,2,...,10], the tape `A(3n+2, 0)` goes to `(16/3 n + 7 , 1) if n = 0 (mod 3), (16/3n + 25/3, 2) if n = 2 (mod 3).`  God knows what happens if n is congruent to 1.  Using these rules, I was able to go from 113 rule steps to........118 before the congruent 1 case was triggered.
+
+In the first two cases, the lone 2 on the right hand side of the tape becomes a lone 4, and then is subsumed into the normal A(a,b) framework. In the last case, the lone 2 becomes a lone 4, then becomes a lone 1, but from there, I don&apos;t see a pattern. Sometimes it fixes itself, like when n = 1, but sometimes we enter a whole new phase like with n = 4.</div>
+            
+            <div class="message-attachments">
+                
+                <div class="message-attachment">
+                    
+                    <img src="..&#x2f;../attachments/1336973758472261682">
+                    
+                </div>
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1337181082235306036">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1337181082235306036">2025-02-06 22:00</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">ok the machine reaches `A(1287547464911049659,10)` after `1894603970741566467769886232237213051` steps and that seems to actually be a cryptid</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1337181169233559633">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1337181169233559633">2025-02-06 22:00</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text"></div>
+            
+            <div class="message-attachments">
+                
+                <div class="message-attachment">
+                    
+                    <a href="..&#x2f;../attachments/1337181168805875823">message.txt</a>
+                    
+                </div>
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1354197282286862467">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1354197282286862467">2025-03-25 20:56</a></div>
+            <div class="message-header-right">
+                <div class="message-username">sligocki</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">I&apos;m simulating to 10B right now, but probably will stop there. If anyone wants to sim further the code is in my repo (https://github.com/sligocki/busy-beaver) and command looks like:
+```
+$ time cpp/direct_sim_all holdouts/BB2x5_Coq_holdouts_99.tm_only.txt 1000000000 2x5.holdouts99.direct_sim.txt
+Finished simulating 1000000000 steps  Total: 99  Halt: 0  Unknown: 99
+cpp/direct_sim_all holdouts/BB2x5_Coq_holdouts_99.tm_only.txt 1000000000   469.37s user 2.32s system 98% cpu 8:00.16 total
+```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1354197509911875897">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1354197509911875897">2025-03-25 20:57</a></div>
+            <div class="message-header-right">
+                <div class="message-username">sligocki</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">Note, you need a file with only TM on each line. I got that via
+```
+awk &apos;{print $2}&apos; holdouts/BB2x5_Coq_holdouts_99.txt &gt; holdouts/BB2x5_Coq_holdouts_99.tm_only.txt
+```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1354198369484013568">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1354198369484013568">2025-03-25 21:00</a></div>
+            <div class="message-header-right">
+                <div class="message-username">sligocki</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">Really the only TMs I could get any notable acceleration on (using inductive simulator) were:
+```
+1RB3LA1LA1RA1RA_2LB2RA---4RB1LB &gt;10^377
+1RB3LA1LA1RA3RA_2LB2RA---4RB1LB &gt;10^423
+1RB3RB---3LA1RA_2LA3RA4LB0LB1LB &gt;10^13634
+1RB3RB---3LA1RA_2LA3RA4LB0LB0LA &gt;10^16771
+```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1354199011330097223">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1354199011330097223">2025-03-25 21:03</a></div>
+            <div class="message-header-right">
+                <div class="message-username">sligocki</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">Which appear to be the 2 (maybe cryptids) from https://discord.com/channels/960643023006490684/1349040227548663858/1349327014955319339, Bonus Cryptid and Hydra 🙂</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
 </body>

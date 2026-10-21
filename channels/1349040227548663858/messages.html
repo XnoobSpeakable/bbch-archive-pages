@@ -14,4 +14,115 @@
         </ul>
     </nav>
     
+    <div class="message" id="message-1349327014955319339">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1349327014955319339">2025-03-12 10:23</a></div>
+            <div class="message-header-right">
+                <div class="message-username">mxdys_82900</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">I added Coq proof for all of them except two nontrivial TMs (may be cryptid):
+```
+1RB3LA1LA1RA1RA_2LB2RA---4RB1LB
+1RB3LA1LA1RA3RA_2LB2RA---4RB1LB
+```
+analysis:
+```
+1RB3LA1LA1RA1RA_2LB2RA---4RB1LB
+start: A(4,4)
+A(a,3+a+b) --&gt; A(4+2a,b)
+A(a,2+a) --&gt; ?
+A(a,1+a) --&gt; halt
+A(b+a,b) --&gt; B(a,2b)
+
+B(3a+1,b) --&gt; A(4,2+5a+b)
+B(3a+2,b) --&gt; B(5+5a+b,2)
+B(3a+0,b) --&gt; B(3+5a+b,0)
+
+A(a,b) := 0^inf 1 4^a 1^4 A&gt; 1^b 2 0^inf
+B(a,b) := 0^inf 1 4^a 1^3+b A&gt; 11 0^inf
+```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">🦫</div>
+                    <div class="message-reaction-count">2</div>
+                </div>
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">💌</div>
+                    <div class="message-reaction-count">2</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1349436381490843670">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1349436381490843670">2025-03-12 17:38</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">to complete the set of rules:```
+A(a,a+2) -&gt; B(2a+2,3)```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1349448649817456670">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1349448649817456670">2025-03-12 18:27</a></div>
+            <div class="message-header-right">
+                <div class="message-username">racheline_nya</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">here&apos;s the other one:```
+1RB3LA1LA1RA3RA_2LB2RA---4RB1LB
+A(a,b) := 0^inf 1 4^a 1^3 A&gt; 1^b 2 0^inf
+B(a,b) := 0^inf 1 4^a 1^b A&gt; 1 0^inf
+
+A(a,2a+b+3) -&gt; A(3a+4,b)
+A(a,2a+2) -&gt; B(3a+4,2)
+A(a,2a+1) -&gt; halt
+A(a,2a) -&gt; B(3a+1,7)
+A(a,2a-2) -&gt; B(3a+1,5)
+A(a+b+3,2b+2) -&gt; B(a,3b+10)
+A(a+b+1,2b+1) -&gt; B(a,3b+5)
+
+B(3a,b) -&gt; A(6,7a+b-4)  (assuming 7a+b is large enough)
+B(3a+1,b) -&gt; B(7a+b+1,7)
+B(3a+2,b) -&gt; B(7a+b+4,5)
+
+start from B(2,7)
+B(2,7) -&gt; B(11,5) -&gt; B(30,5) -&gt; A(6,71) -&gt; A(22,56) -&gt; A(70,9) -&gt; B(65,17) -&gt; B(168,5) -&gt; A(6,393) -&gt; A(22,378) -&gt; A(70,331) -&gt; A(214,188) -&gt; B(118,289) -&gt; B(563,7) -&gt; B(1320,5) -&gt; A(6,3081) -&gt; ...
+
+A(6,b) -&gt; A(8*3^n-2,b-8*(3^n-1)+n) where n is maximal such that b &gt;= 8*(3^n-1)-n```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
 </body>

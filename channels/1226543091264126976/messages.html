@@ -127,4 +127,63 @@ N(4, ~10^24684623)
         </div>
     </div>
     
+    <div class="message" id="message-1433247936942440498">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1433247936942440498">2025-10-30 00:15</a></div>
+            <div class="message-header-right">
+                <div class="message-username">int_y1</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">c++ quick_sim halted
+```
+./quick_sim &apos;1RB1RF_0LC1RC_1RD1LC_---0RE_1RA1LF_1RA0LE&apos; 2
+...
+Elapsed time: 76437.2
+00^inf 01^1 11^2209670157 (11) Z&gt; 00^inf
+Total blocks: 2209670158
+Total steps:  1027527643445852271406477752
+Loops:        35039235619
+Macro moves:  23359504647
+Chain moves:  9785713060
+Rule moves:   1894017912
+Rule proven:  4
+Elapsed time: 76437.2
+end of run
+```
+for reference, here&apos;s my python run
+```
+python Quick_Sim.py &apos;1RB1RF_0LC1RC_1RD1LC_---0RE_1RA1LF_1RA0LE&apos; --freeze-prover --no-steps --print-loops=10000000
+...
+         Steps:                     Times Applied:
+Total:   0                              5860000000
+Macro:   N/A                            3906691485
+Chain:   N/A                            1636553362
+Rule:    N/A                             316755153
+Rules proven: 4
+Collatz rules: 0
+Failed proofs: 0
+Prover num past configs: 0
+Tape copies: 712702522
+Elapsed time: 76448.02271223068
+00^inf 11^101_536_490 01^1 &lt;C (11) 11^267_998_163 10^1 00^inf
+Num Nonzeros: 739_069_310  =  739_069_310
+```
+so c++ quick_sim is ~6x faster</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">🦫</div>
+                    <div class="message-reaction-count">5</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
 </body>
