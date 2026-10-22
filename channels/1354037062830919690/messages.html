@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>bbchallenge - #1RB---0RB0LA2RA_2LB2LA3RA4LB0LB (shift-overflow counter, looks like cryptid)</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="..&#x2f;../styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1><a href="..&#x2f;../guilds/960643023006490684.html">bbchallenge</a> - <a href="..&#x2f;../channels/1336602535502544936/threads.html">#None</a> - 1RB---0RB0LA2RA_2LB2LA3RA4LB0LB (shift-overflow counter, looks like cryptid)</h1>
+    <nav>
+        <ul>
+            
+        </ul>
+    </nav>
+    
+    <div class="message" id="message-1354037062830919690">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1354037062830919690">2025-03-25 10:19</a></div>
+            <div class="message-header-right">
+                <div class="message-username">mxdys_82900</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">```
+1LB---0LB0RA2LA_2RB2RA3LA4RB0RB (flipped)
+
+in most of the time the tape is like
+.22 (42|02|22)* (&lt;A|B&gt;) (2|3)* 31.
+and RInc,LInc are used alternatively
+. means 0^inf
+
+RInc:
+B&gt; 3^n (2 | 31.  )
+&lt;A 2^n (3 | 2 31.)
+
+LInc (22,02,42 are digits 0,1,2 in decreasing ternary counter):
+(42|02) 22^n &lt;A
+(02|22) 42^n B&gt;
+
+start: .22 42 42 B&gt; 31.
+```
+
+when the left ternary counter overflows,
+LOv,LRst,RRst0 removes 0 and may merge two left ternary counters
+RRst0,RRstS eats some digits of the right binary counter
+RRstS creates a new left ternary counter
+after RRst0 or LRst, the overflow stage is finished and LInc,RInc can be used
+after RRstS, RInc will be used once, and then return to the overflow stage
+if the right binary counter doesn&apos;t counts to a good number, ROvHalt can lead to halt, but it seems to probviously won&apos;t happen
+
+```
+
+RRst0:
+0 22^b A&gt; 2
+22 42^b B&gt;
+
+RRstS:
+A&gt; 3^n+1 2
+0^n 22^1 B&gt;
+
+ROvHalt:
+A&gt; 3^n 1.
+halt
+
+LOv:
+00 22^m &lt;A
+22^m+1 A&gt;
+
+LRst:
+0 22^b 0 22^c &lt;A
+22 42^b 22^c A&gt;
+```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
