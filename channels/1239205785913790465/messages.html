@@ -14,6 +14,66 @@
         </ul>
     </nav>
     
+    <div class="message" id="message-1260916010685300746">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1260916010685300746">2024-07-11 11:10</a></div>
+            <div class="message-header-right">
+                <div class="message-username">mxdys_82900</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">```
+1RB0RE_0RC---_1LD1LE_1LE1LD_1RF0LC_1RA1RF (chaotic 1dCA in bell)
+
+(...0 a1 a2 ... an &gt; b1 b2 ... bm 0...)  :=  (0^inf 0 1^a1 0 1^a2 ... 0 1^an E&gt; 1^b1 0 1^b2 0 ... 1^bm 0 0^inf)
+(...0 a1 a2 ... an &lt; b1 b2 ... bm 0...)  :=  (0^inf 0 1^a1 0 1^a2 ... 0 1^an &lt;E 1^b1 0 1^b2 0 ... 1^bm 0 0^inf)
+
+
+start from:
+...0 1 &lt; 2 0...
+
+
+local rewrite rules:
+a &gt; 0 b c+1
+-----------  (R)
+a+b+2 0 &gt; c
+
+
+a &gt; b+2
+---------  (RL)
+a+1 &lt; b+1
+
+
+a &gt; 1 0...
+---------- (RL&apos;&apos;)
+a+1 &lt; 0...
+
+
+a 2b+1 &lt;
+---------  (L)
+&lt; a+2 1^b
+
+
+2a &lt;
+-------  (LR)
+&gt; 0 1^a
+
+
+a &gt; 0 b 0...
+--------------  (RL&apos;)
+a+b+3 &lt; 2 0...
+```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
     <div class="message" id="message-1266406840103866399">
         <div class="message-header">
             <div class="message-timestamp"><a href="#message-1266406840103866399">2024-07-26 14:48</a></div>
@@ -403,6 +463,49 @@ start from A(3,1)
         </div>
     </div>
     
+    <div class="message" id="message-1274733002454335601">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1274733002454335601">2024-08-18 14:13</a></div>
+            <div class="message-header-right">
+                <div class="message-username">mxdys_82900</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">```
+1RB0RB_1LC1RE_1LF0LD_1RA1LD_1RC1RB_---1LC
+
+start: P(2)
+
+P(2a)   -&gt; P(3a+4)
+P(2a+1) -&gt; Q(a+2,1)
+
+Q(2a+3,b) -&gt; P(b+5a+6)
+Q(2a+2,b) -&gt; Q(a,b+2a+5)
+
+Q(1,2b+1) -&gt; P(3b+8)
+Q(1,2b)   -&gt; Q(b+2,1)
+
+Q(0,b)    -&gt; halt
+
+P(a) := 0^inf 1^a 011 &lt;D 0^inf
+Q(a,b) := 0^inf 1^(2a+1) &lt;D 0 1^b 0^inf
+```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">🧐</div>
+                    <div class="message-reaction-count">1</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
     <div class="message" id="message-1274976116376993896">
         <div class="message-header">
             <div class="message-timestamp"><a href="#message-1274976116376993896">2024-08-19 06:19</a></div>
@@ -479,6 +582,59 @@ start: (0,3,0)
                     <div class="message-reaction-text">🙏</div>
                     <div class="message-reaction-count">2</div>
                 </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1284419946759323700">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1284419946759323700">2024-09-14 07:46</a></div>
+            <div class="message-header-right">
+                <div class="message-username">mxdys_82900</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">an example of &quot;cubic cap&quot;:
+```
+1RB0RD_0LC1RA_0RA1LB_1RE1LB_1LF1LB_---1LE
+(a,b,c) := 0^inf 1^a &lt;B 1 01^b 1^c 0^inf
+
+(a,b,c) -&gt; (a-min(a,c),b+min(a,c),c-min(a,c))
+(0,b,0) -&gt; (2b,0,4)
+(0,b,1) -&gt; (2b,0,4)
+(0,b,c+2) -&gt; (2b+1,1,c)
+(1,b,0) -&gt; halt
+(a+2,b,0) -&gt; (a,0,2b+4)
+
+start: (0,0,0)
+```</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1284838151348551795">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1284838151348551795">2024-09-15 11:28</a></div>
+            <div class="message-header-right">
+                <div class="message-username">mxdys_82900</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">it LOOPS because of the attractor `(n,2n) -&gt; (2n+2,n-1) -&gt; (n+1,2n+2)`</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
                 
             </div>
         </div>
@@ -787,6 +943,99 @@ that phase continues past step 14 billion, and during that time, the right side 
                     <img src="..&#x2f;../attachments/1373012119485812837">
                     
                 </div>
+                
+            </div>
+            <div class="message-reactions">
+                
+                <div class="message-reaction">
+                    <div class="message-reaction-text">🦫</div>
+                    <div class="message-reaction-count">2</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1400141896944320602">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1400141896944320602">2025-07-30 15:44</a></div>
+            <div class="message-header-right">
+                <div class="message-username">mxdys_82900</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">```
+1RB0LD_1RC1RA_1LD0RB_1LE1LA_1RF0RC_---1RE
+
+(a,2+b,c) --&gt; (a,b,3+c)
+(a+1,0,c) --&gt; (a,c,2)
+(a+1,1,c) --&gt; (a,c,6)
+(0,0,c) --&gt; halt
+(0,1,c) --&gt; (2c+9,0,0)
+start: (3,0,0)
+
+(3,0,0) --&gt; ...
+(25,0,0) --&gt; ...
+(227097,0,0) --&gt; ...
+(_,0,0) --&gt; ...
+
+(a,b,c) := 0^inf 1^a 0 01^b 0 11^c+1 B&gt; 0^inf
+```
+confirmed that it doesn&apos;t halt early</div>
+            
+            <div class="message-attachments">
+                
+            </div>
+            <div class="message-reactions">
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="message" id="message-1402211374565953609">
+        <div class="message-header">
+            <div class="message-timestamp"><a href="#message-1402211374565953609">2025-08-05 08:47</a></div>
+            <div class="message-header-right">
+                <div class="message-username">mxdys_82900</div>
+            </div>
+        </div>
+        <div class="message-content">
+            
+            <div class="message-text">```
+1RB0LD_0RC0RF_0RD0RA_1LE0RD_1LF---_0LA1LA
+
+(n+a,b,2n+c) --&gt; (a,n+b,c)
+
+(0,b,c) --&gt; (5+3b,0,c)
+
+(1,10+b,0) --&gt; halt
+(1,10+b,1) --&gt; halt
+
+(2,b,0) --&gt; (2,0,8+3b)
+(2,b,1) --&gt; (2,0,11+3b)
+
+(3+a,b,0) --&gt; (a,0,6+3b)
+(3+a,b,1) --&gt; (a,0,9+3b)
+
+start: (10,0,12)
+```
+this machine is weird
+it does&apos;t halt in 8.9e12 rules (the first rule doesn&apos;t count)
+for small (a,0,c), none of them halts between 1e5 and 1e8 rules (use the simplified model that (1,b,0) and (1,b,1) halts)
+for each visited (a,0,c), log(c/a) seems to have a good distribution, which means that it doesn&apos;t fall into a fixpoint quickly
+and the (2,b,0),(2,b,1) rules are used for several times:
+```
+T=462: 2 673 1
+T=41231: 2 59502 0
+T=6056795: 2 8748186 1
+T=45863796: 2 66242895 0
+T=2012212661: 2 2906495658 1
+T=10335020887: 2 14928329409 1
+T=468871071868: 2 677258129269 1
+```</div>
+            
+            <div class="message-attachments">
                 
             </div>
             <div class="message-reactions">
